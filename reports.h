@@ -1,7 +1,7 @@
 #ifndef REPORTS_H
 #define REPORTS_H
 
-/* ---------- Size limits (kept simple with fixed-size arrays) ---------- */
+/* ---------- Size limits ---------- */
 #define MAX_EMPLOYEES  50
 #define MAX_BUDGETS    20
 #define MAX_SUPPLIERS  50
@@ -44,7 +44,7 @@ typedef struct {
     char  condition[20];
 } Asset;
 
-/* ---------- Reports module function prototypes ---------- */
+/* Reports module function prototypes */
 void displayReportsMenu(Employee employees[], int employeeCount,
                          Budget budgets[], int budgetCount,
                          Supplier suppliers[], int supplierCount,
