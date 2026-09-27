@@ -1,16 +1,6 @@
 #include <stdio.h>
 #include "reports.h"
 
-/* ============================================================
-   REPORTS MODULE
-   Author: Felicia
-   Responsibility: Reports (Module 5 of the MFMS)
-
-   This file only PRINTS reports from data that already exists
-   in the employee/budget/supplier/asset arrays. It does not
-   create or modify records - that is done by the other modules.
-   ============================================================ */
-
 
 /* ---------- Employee Report ----------
    Total employees, average / highest / lowest total salary.
