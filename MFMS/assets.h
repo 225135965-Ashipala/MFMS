@@ -18,4 +18,6 @@ void addAsset(Asset assets[], int *assetCount);
 void displayAssets(Asset assets[], int assetCount);
 void updateAsset(Asset assets[], int assetCount);
 
+void assetMenu(Asset assets[], int *assetCount);
+
 #endif
