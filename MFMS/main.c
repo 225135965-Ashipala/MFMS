@@ -1,49 +1,51 @@
 #include <stdio.h>
+#include "validation.h"
+#include "employees.h"
 #include "budget.h"
+#include "suppliers.h"
+#include "assets.h"
+#include "reports.h"
 
-int main()
+static void displayMenu(void)
 {
-    Budget budgets[MAX_BUDGETS];
-    int budgetCount = 0;
-int choice;
+    printf("\n========================================\n");
+    printf("MUNICIPAL FINANCIAL MANAGEMENT SYSTEM\n");
+    printf("========================================\n");
+    printf("1. Employee Management\n");
+    printf("2. Budget Management\n");
+    printf("3. Supplier Management\n");
+    printf("4. Asset Management\n");
+    printf("5. Reports\n");
+    printf("6. Exit\n");
+}
 
-do
+int main(void)
 {
-    printf("\n===== BUDGET MANAGEMENT =====\n");
-    printf("1. Add Budget\n");
-    printf("2. Display Budgets\n");
-    printf("3. Update Budget\n");
-    printf("4. Calculate Remaining Budget\n");
-    printf("5. Exit\n");
-    printf("Enter your choice: ");
-    scanf("%d", &choice);
+    /* All data lives here and is passed to each module. */
+    struct Employee employees[MAX_EMPLOYEES];
+    Budget          budgets[MAX_BUDGETS];
+    Supplier        suppliers[MAX_SUPPLIERS];
+    Asset           assets[MAX_ASSETS];
 
-    switch (choice)
-    {
-        case 1:
-            addBudget(budgets, &budgetCount);
-            break;
+    int employeeCount = 0, budgetCount = 0, supplierCount = 0, assetCount = 0;
+    int choice;
 
-        case 2:
-            displayBudgets(budgets, budgetCount);
-            break;
+    do {
+        displayMenu();
+        choice = getInt("Enter your choice: ", 1, 6);
 
-        case 3:
-            updateBudget(budgets, budgetCount);
-            break;
+        switch (choice) {
+            case 1: employeeMenu(employees, &employeeCount);        break;
+            case 2: budgetMenu(budgets, &budgetCount);              break;
+            case 3: displaySupplierMenu(suppliers, &supplierCount); break;
+            case 4: assetMenu(assets, &assetCount);                 break;
+            case 5: displayReportsMenu(employees, employeeCount,
+                                       budgets, budgetCount,
+                                       suppliers, supplierCount,
+                                       assets, assetCount);         break;
+            case 6: printf("\nGoodbye.\n");                         break;
+        }
+    } while (choice != 6);
 
-        case 4:
-            calculateRemainingBudget(budgets, budgetCount);
-            break;
-
-        case 5:
-            printf("Exiting Budget Management...\n");
-            break;
-
-        default:
-            printf("Invalid choice. Please try again.\n");
-    }
-
-} while (choice != 5);
     return 0;
 }
