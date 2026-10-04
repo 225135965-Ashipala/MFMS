@@ -5,7 +5,7 @@
 /* ---------- Employee Report ----------
    Total employees, average / highest / lowest total salary.
    Total salary for one employee = basic + housing + transport. */
-void employeeReport(Employee employees[], int employeeCount)
+void employeeReport(struct Employee employees[], int employeeCount)
 {
     int i;
     float total, highest, lowest, current;
@@ -187,7 +187,7 @@ void assetReport(Asset assets[], int assetCount)
 /* ---------- Reports Sub-menu ----------
    Called from the main menu when the user selects "5. Reports".
    Lets the user pick which report to view, or go back. */
-void displayReportsMenu(Employee employees[], int employeeCount,
+void displayReportsMenu(struct Employee employees[], int employeeCount,
                          Budget budgets[], int budgetCount,
                          Supplier suppliers[], int supplierCount,
                          Asset assets[], int assetCount)

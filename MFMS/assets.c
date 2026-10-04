@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "assets.h"
+#include "validation.h"
 
 void addAsset(Asset assets[], int *assetCount)
 {
@@ -108,4 +109,27 @@ void updateAsset(Asset assets[], int assetCount)
     scanf(" %19[^\n]", assets[choice].condition);
 
     printf("\nAsset updated successfully!\n");
+}
+
+void assetMenu(Asset assets[], int *assetCount)
+{
+    int choice;
+
+    do
+    {
+        printf("\n===== ASSET MANAGEMENT =====\n");
+        printf("1. Add Asset\n");
+        printf("2. Display Assets\n");
+        printf("3. Update Asset\n");
+        printf("4. Back to Main Menu\n");
+        choice = getInt("Enter your choice: ", 1, 4);
+
+        switch (choice)
+        {
+            case 1: addAsset(assets, assetCount);        break;
+            case 2: displayAssets(assets, *assetCount);  break;
+            case 3: updateAsset(assets, *assetCount);    break;
+            case 4: break;
+        }
+    } while (choice != 4);
 }

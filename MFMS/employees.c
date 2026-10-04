@@ -1,73 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define MAX_EMPLOYEES 100
-
-// Employee structure
-struct Employee {
-    char id[20];
-    char name[50];
-    char department[50];
-    double basicSalary;
-    double housingAllowance;
-    double transportAllowance;
-    double grossSalary;
-};
-
-// Function declarations
-void calculateSalary(struct Employee *emp);
-void addEmployee(struct Employee empList[], int *count);
-void displayEmployees(struct Employee empList[], int count);
-void searchEmployee(struct Employee empList[], int count);
-void employeeMenu(struct Employee empList[], int *count);
-
-int main() {
-    struct Employee employees[MAX_EMPLOYEES];
-    int employeeCount = 0;
-    int choice;
-
-    do {
-        printf("\n=================================\n");
-        printf(" MUNICIPAL FINANCIAL MANAGEMENT SYSTEM \n");
-        printf("===================================\n");
-        printf("1. Employee Management\n");
-        printf("2. Budget Management (Under Construction)\n");
-        printf("3. Supplier Management (Under Construction)\n");
-        printf("4. Asset Management (Under Construction)\n");
-        printf("5. Reports (Under Construction)\n");
-        printf("6. Exit\n");
-        printf("------------------------------------\n");
-        
-        // ask user for input menu choice
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
-
-        switch (choice) {
-            case 1:
-                employeeMenu(employees, &employeeCount);
-                break;
-            case 2:
-                printf("\n[Budget Management module will be added by Student 2]\n");
-                break;
-            case 3:
-                printf("\n[Supplier Management module will be added by Student 3]\n");
-                break;
-            case 4:
-                printf("\n[Asset Management module will be added by Student 4]\n");
-                break;
-            case 5:
-                printf("\n[Reports module will be added by Student 5]\n");
-                break;
-            case 6:
-                printf("\nExiting Municipal Financial Management System. Goodbye!\n");
-                break;
-            default:
-                printf("\nInvalid choice! Please enter a number between 1 and 6.\n");
-        }
-    } while (choice != 6);
-
-    return 0;
-}
+#include "employees.h"
 
 // Automatically calculates gross salary based on basic and allowances
 void calculateSalary(struct Employee *emp) {
