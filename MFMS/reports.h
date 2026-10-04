@@ -7,18 +7,15 @@
 #define MAX_SUPPLIERS  50
 #define MAX_ASSETS     50
 
-/* ---------- Shared data structures ----------
-   NOTE: These structs should match the ones your teammates use in
-   employees.h, budget.h, suppliers.h and assets.h. Agree on the field
-   names as a group so everyone's struct definitions line up exactly. */
 
 typedef struct {
-    int   employeeID;
-    char  name[50];
-    char  department[30];
-    float basicSalary;
-    float housingAllowance;
-    float transportAllowance;
+    char   id[20];
+    char   name[50];
+    char   department[50];
+    double basicSalary;
+    double housingAllowance;
+    double transportAllowance;
+    double grossSalary;
 } Employee;
 
 typedef struct {
@@ -56,3 +53,4 @@ void supplierReport(Supplier suppliers[], int supplierCount);
 void assetReport(Asset assets[], int assetCount);
 
 #endif
+
